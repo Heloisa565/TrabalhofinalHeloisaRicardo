@@ -1,0 +1,44 @@
+<h1>LISTAGEM DE VETERINÁRIOS</h1>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    th a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CRMV</th>
+        <th>Ações</th>
+    </tr>
+    {{#each veterinarios}}
+    <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.nome}}</td>
+        <td>{{this.crmv}}</td>
+        <td>
+            <a href="/veterinarios/editar/{{this.id}}">Editar</a>
+            <form action="/veterinarios/excluir/{{this.id}}" method="POST" style="display:inline;">
+                <button type="submit">Excluir</button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<a href="/veterinarios/cadastrar">Cadastrar Novo Veterinário</a>
+<p>
+<a href="/">Voltar para a Página Inicial</a>
+</p>

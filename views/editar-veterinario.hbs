@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Veterinário</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>EDITAR VETERINÁRIOS</h1>
+        <nav>
+            <a href="/">Página Inicial</a>
+            <a href="/veterinarios/listar">Voltar para Listagem de Veterinários</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/veterinarios/editar/{{veterinario.id}}" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" value="{{veterinario.nome}}" required>
+            <label for="crmv">CRMV:</label>
+            <input type="text" id="crmv" name="crmv" value="{{veterinario.crmv}}" required>
+            <button type="submit">Salvar</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<h1>LISTAGEM DE PAGAMENTOS</h1>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    th a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th><a href="/pagamentos/listar?sort=id">ID</a></th>
+            <th><a href="/pagamentos/listar?sort=valor">Valor</a></th>
+            <th><a href="/pagamentos/listar?sort=data">Data</a></th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each pagamentos}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.valor}}</td>
+            <td>{{this.data}}</td>
+            <td>
+                <a href="/pagamentos/editar/{{this.id}}">Editar</a>
+                <form action="/pagamentos/excluir/{{this.id}}" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<a href="/pagamentos/registrar">Registrar Novo Pagamento</a>
+<p>
+<a href="/">Voltar para a Página Inicial</a>
+</p>

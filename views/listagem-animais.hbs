@@ -1,0 +1,46 @@
+<h1>Listagem de Animais</h1>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    th a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Raça</th>
+        <th>Idade</th>
+        <th>Ações</th>
+    </tr>
+    {{#each animais}}
+    <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.nome}}</td>
+        <td>{{this.raca}}</td>
+        <td>{{this.idade}}</td>
+        <td>
+            <a href="/animais/editar/{{this.id}}">Editar</a>
+            <form action="/animais/excluir/{{this.id}}" method="POST" style="display:inline;">
+                <button type="submit">Excluir</button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<a href="/animais/cadastrar">Cadastrar Novo Animal</a>
+<p>
+<a href="/">Voltar para a Página Inicial</a>
+</p>
